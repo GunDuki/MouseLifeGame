@@ -1,4 +1,3 @@
-Enter file contents here
 #include<stdio.h>
  int money = 20000; // 돈
    int diff,i; // 난이도 , for 변수
