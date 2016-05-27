@@ -33,6 +33,7 @@ void PCroom(){
 				}
 				health-=2;
 			}
+			timer-=1;
 			break;
 		case 2://롤
 			for(i=0;i<2;i++){
@@ -55,6 +56,7 @@ void PCroom(){
 				}
 					health-=2;
 			}
+			timer-=1;
 			break;
 		case 3://피파
 			for(i=0;i<2;i++){
@@ -78,6 +80,7 @@ void PCroom(){
 				}
 			}
 			health-=2;
+			timer-=1;
 		}
 	case 2:
 		switch(gamechoice){
@@ -102,6 +105,7 @@ void PCroom(){
 				}
 				health-=2;
 			}
+			timer-=2;
 			break;
 		case 2://롤
 			for(i=0;i<4;i++){
@@ -124,6 +128,7 @@ void PCroom(){
 				}
 					health-=2;
 			}
+			timer-=2;
 			break;
 		case 3://피파
 			for(i=0;i<4;i++){
@@ -147,6 +152,7 @@ void PCroom(){
 				}
 			}
 			health-=2;
+			timer-=2;
 		}
 	case 3:
 		switch(gamechoice){
@@ -171,6 +177,7 @@ void PCroom(){
 				}
 				health-=2;
 			}
+			timer-=3;
 			break;
 		case 2://롤
 			for(i=0;i<6;i++){
@@ -193,6 +200,7 @@ void PCroom(){
 				}
 					health-=2;
 			}
+			timer-=3;
 			break;
 		case 3://피파
 			for(i=0;i<6;i++){
@@ -214,6 +222,7 @@ void PCroom(){
 					case 3:
 						printf("피파에서 무승부를하였습니다. 멘탈 그대로");
 				}
+				timer-=3;
 				health-=2;
 			}
 		}
