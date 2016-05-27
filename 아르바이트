@@ -1,0 +1,65 @@
+Enter file contents here
+#include<stdio.h>
+ int money = 20000; // 돈
+   int diff,i; // 난이도 , for 변수
+   int day; // 요일
+   int date; // 날짜
+   int timer=18; // 시간
+   int health = 100; // 체력
+   int intell = 100; // 지능
+   int foodbar = 100; // 허기
+   int mental = 100; // 멘탈 
+
+void ptj();
+int main()
+
+{
+   printf("===============난이도 설정===============\n\n1. 쉬움( 14일 )\t2. 보통( 30일 )\t3. 어려움( 90일 )\n::");
+   scanf("%d",&diff);
+   for (i = 0; i <= diff; i++) 
+   {
+   	date++; /*알바의 종류  편돌이 막노동 허더 따까리*/
+   }
+   return 0; 
+}
+void ptj()//아르바이트 함수
+{
+	int choice;
+	printf("===============아르바이트 선택==============\n\n1. 편돌이\t2. 막노동\t3. 허더 따까리\n::");
+	scanf("%d", &choice);
+	switch (choice)
+	{
+		case 1:
+			printf("편돌이로 취직하여 단순노동을 합니다......\n");
+			timer -= 4; //4시간 경과 (감소)
+			health -= 15;//체력 10 감소 
+			intell -= 5;// 지능 5감소
+			foodbar -= 15;//허기 15감소 
+			mental -= 5;
+			printf("편의점 알바가 끝났습니다.\n");
+			printf("남은시간:%d 남은체력:%d 남은지능:%d 허기지수:%d 멘탈강도:%d", timer, health, intell, foodbar, mental);
+			break;
+			
+		case 2:
+			printf("막노동을 시작합니다......\n");
+			timer -= 6;
+			health -= 30;
+			intell -= 5;
+			foodbar -= 25;
+			mental -= 10;
+			printf("막노동이 끝났습니다.\n");
+			printf("남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d", timer, health, intell, foodbar, mental);
+			break;
+			
+		case 3:
+			printf("!!!!!허더 따까리짓을 시작합니다!!!!!\n");
+			timer -= 2
+			health -= 40;
+			intell -= 30;
+			foodbar -= 30;
+			mental -= 25;
+			printf("드디어 허더에게서 벗어났습니다.....\n");
+			printf("남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d", timer, health, intell, foodbar, mental);
+	}
+	return 0;
+}
