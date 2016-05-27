@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <windows.h>
+void ptj();
 void street();
 void PCroom();
 int hospi();
@@ -28,6 +29,7 @@ void main() {
 		hospi();
 		PCroom();
 		street();
+		ptj();
 	}
 }
 
@@ -200,9 +202,9 @@ void PCroom() {
 	int randomevent;
 	int singo = 0;
 	printf("====================30분마다 1게임====================\n====================도중에 게임 못바꿈====================\n====================1시간당 허기 5====================\n====================시간당 체력 4====================");
-	printf("\nPC방에 왔습니다.\n1.1시간(1000원)\t2.2시간(2000원)\t3.3시간(3000원) ::");
+	printf("\nPC방에 왔습니다.\n1.1시간(1000원)\t2.2시간(2000원)\t3.3시간(3000원)\n::");
 	scanf("%d", &pctime);
-	printf("어떤게임을 하시겠습니다.\n1.서든\t2.롤\t3.피파 ::");
+	printf("어떤게임을 하시겠습니다.\n1.서든\t2.롤\t3.피파\n::");
 	scanf("%d", &gamechoice);
 	switch (pctime) {
 	case 1:
@@ -255,6 +257,7 @@ void PCroom() {
 				Sleep(1000);
 			}
 			timer -= 1;
+			money -= 1000;
 			break;
 		case 3://피파
 			for (i = 0; i<2; i++) {
@@ -280,6 +283,7 @@ void PCroom() {
 				health -= 2;
 			}
 			timer -= 1;
+			money -= 1000;
 		}
 	case 2:
 		switch (gamechoice) {
@@ -306,6 +310,7 @@ void PCroom() {
 				Sleep(1000);
 			}
 			timer -= 2;
+			money -= 2000;
 			break;
 		case 2://롤
 			for (i = 0; i<4; i++) {
@@ -330,6 +335,7 @@ void PCroom() {
 				Sleep(1000);
 			}
 			timer -= 2;
+			money -= 2000;
 			break;
 		case 3://피파
 			for (i = 0; i<4; i++) {
@@ -355,6 +361,7 @@ void PCroom() {
 				health -= 2;
 			}
 			timer -= 2;
+			money -= 2000;
 		}
 	case 3:
 		switch (gamechoice) {
@@ -381,6 +388,7 @@ void PCroom() {
 				health -= 2;
 			}
 			timer -= 3;
+			money -= 2000;
 			break;
 		case 2://롤
 			for (i = 0; i<6; i++) {
@@ -405,6 +413,7 @@ void PCroom() {
 				health -= 2;
 			}
 			timer -= 3;
+			money -= 2000;
 			break;
 		case 3://피파
 			for (i = 0; i<6; i++) {
@@ -430,7 +439,52 @@ void PCroom() {
 				Sleep(1000);
 			}
 			timer -= 3;
+			money -= 2000;
 		}
 	}
 	printf("돈 : %d\n체력 : %d\n허기 : %d\n지능 : %d\n멘탈 : %d\n", money, health, foodbar, intell, mental);
+}
+void ptj()//아르바이트 함수
+{
+	int choice;
+	printf("===============아르바이트 선택==============\n\n1. 편돌이\t2. 막노동\t3. 허더 따까리\n::");
+	scanf("%d", &choice);
+	switch (choice)
+	{
+	case 1:
+		printf("편돌이로 취직하여 단순노동을 합니다......\n");
+		money += 4000;
+		timer -= 4; //4시간 경과 (감소)
+		health -= 15;//체력 10 감소 
+		intell -= 5;// 지능 5감소
+		foodbar -= 15;//허기 15감소 
+		mental -= 5;
+		printf("편의점 알바가 끝났습니다.\n");
+		printf("소유한 돈 : %d 남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d\n", money, timer, health, intell, foodbar, mental);
+		break;
+
+	case 2:
+		printf("막노동을 시작합니다......\n");
+		money += 12000;
+		timer -= 6;
+		health -= 30;
+		intell -= 5;
+		foodbar -= 25;
+		mental -= 10;
+		printf("막노동이 끝났습니다.\n");
+		printf("소유한 돈 : %d 남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d\n", money, timer, health, intell, foodbar, mental);
+		break;
+
+	case 3:
+		printf("!!!!!허더 따까리짓을 시작합니다!!!!!\n");
+		money += 15000;
+		timer -= 2;
+		health -= 40;
+		intell -= 30;
+		foodbar -= 30;
+		mental -= 25;
+		printf("드디어 허더에게서 벗어났습니다.....\n");
+		printf("소유한 돈 : %d 남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d\n", money, timer, health, intell, foodbar, mental);
+	}
+	return 0;
 }
