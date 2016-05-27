@@ -3,11 +3,11 @@ void PCroom(){
 	int gamechoice;
 	int i;
 	int randomevent;
-	int singo;
+	int singo=0;
 	printf("====================30분마다 1게임====================\n====================도중에 게임 못바꿈====================\n====================1시간당 허기 5====================\n====================시간당 체력 4====================");
-	printf("PC방에 왔습니다.\n1.1시간(1000원)\t2.2시간(2000원)\t3.3시간(3000원)");
+	printf("\nPC방에 왔습니다.\n1.1시간(1000원)\t2.2시간(2000원)\t3.3시간(3000원) ::");
 	scanf("%d",&pctime);
-	printf("어떤게임을 하시겠습니다.\n1.서든\t2.롤\t3.피파");
+	printf("어떤게임을 하시겠습니다.\n1.서든\t2.롤\t3.피파 ::");
 	scanf("%d",&gamechoice);
 	switch(pctime){
 	case 1:
@@ -18,22 +18,23 @@ void PCroom(){
 				randomevent=rand()%2+1;
 				switch(randomevent){
 				case 1://서든에서 이길경우
-					printf("서든에서 이겼습니다. ^^ 멘탈 10증가");
+					printf("서든에서 이겼습니다. ^^ 멘탈 10증가\n");
 					mental+=10;
 					break;
 				case 2://질경우
-					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<");
+					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<\n");
 					mental-=10;
 					srand(time(NULL));
 					singo=rand()%10+1;
 					if(singo==10){
-						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<");
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
 						mental-=10;
 					}
 				}
 				health-=2;
 			}
 			timer-=1;
+			money-=1000;
 			break;
 		case 2://롤
 			for(i=0;i<2;i++){
@@ -43,14 +44,14 @@ void PCroom(){
 					randomevent=rand()%2+1;
 					switch(randomevent){
 					case 1:
-						printf("롤에서 이겼습니다. ^^ 멘탈 15증가");
+						printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
 						mental+=15;
 						break;
 					case 2:
-						printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<");
+						printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
 						mental-=10;
 						if(singo==10){
-							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<");
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
 							mental-=10;
 					}
 				}
@@ -64,19 +65,19 @@ void PCroom(){
 				randomevent=rand()%3+1;
 				switch(randomevent){
 					case 1:
-						printf("피파에서 이겼습니다. ^^ 멘탈 10증가");
+						printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
 						mental+=15;
 						break;
 					case 2:
-						printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<");
+						printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
 						mental-=10;
 						if(singo==10){
-							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<");
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
 							mental-=10;
 					}
 						break;
 					case 3:
-						printf("피파에서 무승부를하였습니다. 멘탈 그대로");
+						printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
 				}
 			}
 			health-=2;
@@ -90,16 +91,16 @@ void PCroom(){
 				randomevent=rand()%2+1;
 				switch(randomevent){
 				case 1://서든에서 이길경우
-					printf("서든에서 이겼습니다. ^^ 멘탈 10증가");
+					printf("서든에서 이겼습니다. ^^ 멘탈 10증가\n");
 					mental+=10;
 					break;
 				case 2://질경우
-					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<");
+					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<\n");
 					mental-=10;
 					srand(time(NULL));
 					singo=rand()%10+1;
 					if(singo==10){
-						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<");
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
 						mental-=10;
 					}
 				}
@@ -115,14 +116,14 @@ void PCroom(){
 					randomevent=rand()%2+1;
 					switch(randomevent){
 					case 1:
-						printf("롤에서 이겼습니다. ^^ 멘탈 15증가");
+						printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
 						mental+=15;
 						break;
 					case 2:
-						printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<");
+						printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
 						mental-=10;
 						if(singo==10){
-							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<");
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
 							mental-=10;
 					}
 				}
@@ -136,19 +137,19 @@ void PCroom(){
 				randomevent=rand()%3+1;
 				switch(randomevent){
 					case 1:
-						printf("피파에서 이겼습니다. ^^ 멘탈 10증가");
+						printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
 						mental+=15;
 						break;
 					case 2:
-						printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<");
+						printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
 						mental-=10;
 						if(singo==10){
-							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<");
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
 							mental-=10;
 					}
 						break;
 					case 3:
-						printf("피파에서 무승부를하였습니다. 멘탈 그대로");
+						printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
 				}
 			}
 			health-=2;
@@ -162,16 +163,16 @@ void PCroom(){
 				randomevent=rand()%2+1;
 				switch(randomevent){
 				case 1://서든에서 이길경우
-					printf("서든에서 이겼습니다. ^^ 멘탈 10증가");
+					printf("서든에서 이겼습니다. ^^ 멘탈 10증가\n");
 					mental+=10;
 					break;
 				case 2://질경우
-					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<");
+					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<\n");
 					mental-=10;
 					srand(time(NULL));
 					singo=rand()%10+1;
 					if(singo==10){
-						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<");
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
 						mental-=10;
 					}
 				}
@@ -187,14 +188,14 @@ void PCroom(){
 					randomevent=rand()%2+1;
 					switch(randomevent){
 					case 1:
-						printf("롤에서 이겼습니다. ^^ 멘탈 15증가");
+						printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
 						mental+=15;
 						break;
 					case 2:
-						printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<");
+						printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
 						mental-=10;
 						if(singo==10){
-							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<");
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
 							mental-=10;
 					}
 				}
@@ -208,23 +209,24 @@ void PCroom(){
 				randomevent=rand()%3+1;
 				switch(randomevent){
 					case 1:
-						printf("피파에서 이겼습니다. ^^ 멘탈 10증가");
+						printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
 						mental+=15;
 						break;
 					case 2:
-						printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<");
+						printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
 						mental-=10;
 						if(singo==10){
-							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<");
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
 							mental-=10;
 					}
 						break;
 					case 3:
-						printf("피파에서 무승부를하였습니다. 멘탈 그대로");
+						printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
 				}
 				timer-=3;
 				health-=2;
 			}
 		}
 	}
+	printf("돈 : %d\n체력 : %d\n허기 : %d\n지능 : %d\n멘탈 : %d",money,health,foodbar,intell,mental);
 }
