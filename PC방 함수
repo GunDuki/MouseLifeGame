@@ -32,6 +32,7 @@ void PCroom(){
 					}
 				}
 				health-=2;
+				Sleep(1000);
 			}
 			timer-=1;
 			money-=1000;
@@ -56,6 +57,7 @@ void PCroom(){
 					}
 				}
 					health-=2;
+					Sleep(1000);
 			}
 			timer-=1;
 			break;
@@ -79,8 +81,9 @@ void PCroom(){
 					case 3:
 						printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
 				}
+				Sleep(1000);
+				health-=2;
 			}
-			health-=2;
 			timer-=1;
 		}
 	case 2:
@@ -105,6 +108,7 @@ void PCroom(){
 					}
 				}
 				health-=2;
+				Sleep(1000);
 			}
 			timer-=2;
 			break;
@@ -128,6 +132,7 @@ void PCroom(){
 					}
 				}
 					health-=2;
+					Sleep(1000);
 			}
 			timer-=2;
 			break;
@@ -151,8 +156,9 @@ void PCroom(){
 					case 3:
 						printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
 				}
+				Sleep(1000);
+				health-=2;
 			}
-			health-=2;
 			timer-=2;
 		}
 	case 3:
@@ -176,6 +182,7 @@ void PCroom(){
 						mental-=10;
 					}
 				}
+				Sleep(1000);
 				health-=2;
 			}
 			timer-=3;
@@ -199,7 +206,8 @@ void PCroom(){
 							mental-=10;
 					}
 				}
-					health-=2;
+				Sleep(1000);
+				health-=2;
 			}
 			timer-=3;
 			break;
@@ -223,9 +231,10 @@ void PCroom(){
 					case 3:
 						printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
 				}
-				timer-=3;
 				health-=2;
+				Sleep(1000);
 			}
+			timer-=3;
 		}
 	}
 	printf("돈 : %d\n체력 : %d\n허기 : %d\n지능 : %d\n멘탈 : %d",money,health,foodbar,intell,mental);
