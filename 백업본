@@ -1,0 +1,436 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <windows.h>
+void street();
+void PCroom();
+int hospi();
+int money = 20000; // 돈
+int timer=18; // 시간
+int health = 100; // 체력
+int intell = 100; // 지능
+int foodbar = 100; // 허기
+int mental = 100; // 멘탈
+int diff, i; // 난이도 , for 변수
+int day; // 요일
+int date = 0; // 날짜
+
+void main() {
+	printf("===============난이도 설정===============\n\n1. 쉬움( 14일 )\t2. 보통( 30일 )\t3. 어려움( 90일 )\n::");
+	scanf("%d",&diff);
+	for (i = 0; i <= diff; i++) {
+		date++;
+		printf("%d일차\n", i);
+		if (health >= 100) health = 100;
+		if (intell >= 100) intell = 100;
+		if (mental >= 100) mental= 100;
+		if (foodbar >= 100) foodbar = 100;
+		hospi();
+		PCroom();
+		street();
+	}
+}
+
+int hospi(){ //병원 함수
+	int choice;
+	if (health >= 100) {
+		printf("체력이 꽉 차있어 들어갈 필요가 없습니다.\n\n"); return 0;
+	}
+	while(1){
+	printf("===============병원===============\n\n1. 응급처치 ( 5000원 / 체력 [30] up )\n2. 건강검진 ( 10000원 / 체력 [50] up )\n3. 수술 ( 40000원 / 체력 [100] up )\n4. 나가기\n::");
+	scanf("%d", &choice); // 선택
+	
+	switch (choice) {
+	case 1:
+		if (money >= 5000) { // 돈이 5000원 이상일때
+			if (timer >= 1) { // 시간이 1시간이상 남을떄
+				if (health <= 100) { // 체력이 100이하일때
+					printf("응급처치를 합니다....\n");
+					timer -= 1; // 1시간 경과
+					health += 30; // 체력 30up
+					money -= 5000; // 돈 5000원 감소
+					printf("응급처치가 완료되었습니다.\n\n");
+					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+					break;
+				}
+				else { printf("이미 체력이 꽉차있습니다.\n"); break; }
+
+			}
+			else { printf("시간이 부족합니다.\n"); break; }
+		}
+		else { printf("돈이 부족합니다.\n"); break; }
+	case 2:
+		if (money >= 10000) { // 돈이 10000원 이상일때
+			if (timer >= 2) { // 시간이 2시간 이상 남았을 때
+				if (health <= 100) { // 체력이 100이하일때
+					printf("건강검진을 합니다....\n");
+					timer -= 2; // 2시간 경과
+					health += 50; // 체력 50up
+					money -= 10000; // 돈 10000원 감소
+					printf("건강검진이 완료되었습니다.\n\n");
+					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+					break;
+				}
+				else { printf("이미 체력이 꽉차있습니다.\n"); break; }
+			}
+			else { printf("시간이 부족합니다.\n"); break; }
+		}
+		else { printf("돈이 부족합니다.\n"); break; }
+	case 3:
+		if (money >= 40000) { // 돈이 40000원 이상일때
+			if (timer >= 3) { // 시간이 3시간 이상 남았을 때
+				if (health <= 100) { // 체력이 100이하일때
+					printf("수술을 합니다....\n");
+					timer -= 3; // 3시간 경과
+					health += 100; // 체력 100up
+					money -= 40000; // 돈 40000원 감소
+					printf("수술이 완료되었습니다.\n\n");
+					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+					break;
+				}
+				else { printf("이미 체력이 꽉차있습니다.\n"); break; }
+			}
+			else { printf("시간이 부족합니다.\n"); break; }
+		}
+		else { printf("돈이 부족합니다.\n"); break; }
+	case 4:
+		printf("병원을 나갑니다.\n\n");
+		return 0;
+	default:
+		printf("잘못된 값을 선택하였습니다.\n");
+		}
+	}
+}
+void street()// 길거리 함수
+{
+	int pick, eat;
+	printf("==============길거리==============\n\n1. 분식점\t2. 편의점\t3. 음식물 쓰레기\n::");
+	scanf("%d", &pick);
+	switch (pick)
+	{
+	case 1:
+		printf("분식점에 왔습니다.\n메뉴를 골라주세요:1. 떡볶이:2000원\t2. 오뎅:500원\t3. 순대:3500원\n::");
+		scanf("%d", &eat);
+		switch (eat)// 메뉴고르는거 
+		{
+		case 1:
+			money -= 2000;
+			foodbar += 15;
+			timer -= 1;
+			printf("떡볶이를 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			break;
+		case 2:
+			money -= 500;
+			foodbar += 10;
+			timer -= 1;
+			printf("오뎅을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			break;
+		case 3:
+			money -= 3500;
+			foodbar += 25;
+			timer -= 1;
+			printf("순대를 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			break;
+		}
+	case 2:
+		printf("편의점에 왔습니다.\n메뉴를 골라주세요:1. 삼각김밥:1000원\t2. 쥬시쿨:500원\t3. 라면:1500원\n::");
+		scanf("%d", &eat);
+		switch (eat)// 메뉴고르는거 
+		{
+		case 1:
+			money -= 1000;
+			foodbar += 10;
+			timer -= 1;
+			printf("삼각김밥을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			break;
+		case 2:
+			money -= 500;
+			foodbar += 5;
+			timer -= 1;
+			printf("쥬시쿨을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			break;
+		case 3:
+			money -= 1500;
+			foodbar += 20;
+			timer -= 1;
+			printf("라면을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			break;
+		}
+	case 3:
+		printf("음식물 쓰레기통에 왔습니다.\n메뉴를 골라주세요:1. 먹다남은 생선:0원\t2. 조개껍데기:0원\t3. 라면국물:0원\n::");
+		scanf("%d", &eat);// 여기는 돈이 안주는대신에 허기는채우나 체력 감소 
+		switch (eat)// 메뉴고르는거 
+		{
+		case 1:
+			health -= 5;
+			foodbar += 10;
+			timer -= 1;
+			printf("먹다남은 생선을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			break;
+		case 2:
+			health -= 5;
+			foodbar += 3;
+			timer -= 1;
+			printf("조개껍데기를 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			break;
+		case 3:
+			health -= 10;
+			foodbar += 20;
+			timer -= 1;
+			printf("라면국물을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			break;
+		}
+
+	}
+
+}
+void PCroom() {
+	int pctime;
+	int gamechoice;
+	int i;
+	int randomevent;
+	int singo = 0;
+	printf("====================30분마다 1게임====================\n====================도중에 게임 못바꿈====================\n====================1시간당 허기 5====================\n====================시간당 체력 4====================");
+	printf("\nPC방에 왔습니다.\n1.1시간(1000원)\t2.2시간(2000원)\t3.3시간(3000원) ::");
+	scanf("%d", &pctime);
+	printf("어떤게임을 하시겠습니다.\n1.서든\t2.롤\t3.피파 ::");
+	scanf("%d", &gamechoice);
+	switch (pctime) {
+	case 1:
+		switch (gamechoice) {
+		case 1://서든
+			for (i = 0; i<2; i++) {
+				srand(time(NULL));
+				randomevent = rand() % 2 + 1;
+				switch (randomevent) {
+				case 1://서든에서 이길경우
+					printf("서든에서 이겼습니다. ^^ 멘탈 10증가\n");
+					mental += 10;
+					break;
+				case 2://질경우
+					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<\n");
+					mental -= 10;
+					srand(time(NULL));
+					singo = rand() % 10 + 1;
+					if (singo == 10) {
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+						mental -= 10;
+					}
+				}
+				health -= 2;
+				Sleep(1000);
+			}
+			timer -= 1;
+			money -= 1000;
+			break;
+		case 2://롤
+			for (i = 0; i<2; i++) {
+				srand(time(NULL));
+				randomevent = rand() % 2 + 1;
+				srand(time(NULL));
+				randomevent = rand() % 2 + 1;
+				switch (randomevent) {
+				case 1:
+					printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
+					mental += 15;
+					break;
+				case 2:
+					printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+					mental -= 10;
+					if (singo == 10) {
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+						mental -= 10;
+					}
+				}
+				health -= 2;
+				Sleep(1000);
+			}
+			timer -= 1;
+			break;
+		case 3://피파
+			for (i = 0; i<2; i++) {
+				srand(time(NULL));
+				randomevent = rand() % 3 + 1;
+				switch (randomevent) {
+				case 1:
+					printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
+					mental += 15;
+					break;
+				case 2:
+					printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+					mental -= 10;
+					if (singo == 10) {
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+						mental -= 10;
+					}
+					break;
+				case 3:
+					printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
+				}
+				Sleep(1000);
+				health -= 2;
+			}
+			timer -= 1;
+		}
+	case 2:
+		switch (gamechoice) {
+		case 1://서든
+			for (i = 0; i<4; i++) {
+				srand(time(NULL));
+				randomevent = rand() % 2 + 1;
+				switch (randomevent) {
+				case 1://서든에서 이길경우
+					printf("서든에서 이겼습니다. ^^ 멘탈 10증가\n");
+					mental += 10;
+					break;
+				case 2://질경우
+					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<\n");
+					mental -= 10;
+					srand(time(NULL));
+					singo = rand() % 10 + 1;
+					if (singo == 10) {
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+						mental -= 10;
+					}
+				}
+				health -= 2;
+				Sleep(1000);
+			}
+			timer -= 2;
+			break;
+		case 2://롤
+			for (i = 0; i<4; i++) {
+				srand(time(NULL));
+				randomevent = rand() % 2 + 1;
+				srand(time(NULL));
+				randomevent = rand() % 2 + 1;
+				switch (randomevent) {
+				case 1:
+					printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
+					mental += 15;
+					break;
+				case 2:
+					printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+					mental -= 10;
+					if (singo == 10) {
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+						mental -= 10;
+					}
+				}
+				health -= 2;
+				Sleep(1000);
+			}
+			timer -= 2;
+			break;
+		case 3://피파
+			for (i = 0; i<4; i++) {
+				srand(time(NULL));
+				randomevent = rand() % 3 + 1;
+				switch (randomevent) {
+				case 1:
+					printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
+					mental += 15;
+					break;
+				case 2:
+					printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+					mental -= 10;
+					if (singo == 10) {
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+						mental -= 10;
+					}
+					break;
+				case 3:
+					printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
+				}
+				Sleep(1000);
+				health -= 2;
+			}
+			timer -= 2;
+		}
+	case 3:
+		switch (gamechoice) {
+		case 1://서든
+			for (i = 0; i<6; i++) {
+				srand(time(NULL));
+				randomevent = rand() % 2 + 1;
+				switch (randomevent) {
+				case 1://서든에서 이길경우
+					printf("서든에서 이겼습니다. ^^ 멘탈 10증가\n");
+					mental += 10;
+					break;
+				case 2://질경우
+					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<\n");
+					mental -= 10;
+					srand(time(NULL));
+					singo = rand() % 10 + 1;
+					if (singo == 10) {
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+						mental -= 10;
+					}
+				}
+				Sleep(1000);
+				health -= 2;
+			}
+			timer -= 3;
+			break;
+		case 2://롤
+			for (i = 0; i<6; i++) {
+				srand(time(NULL));
+				randomevent = rand() % 2 + 1;
+				srand(time(NULL));
+				randomevent = rand() % 2 + 1;
+				switch (randomevent) {
+				case 1:
+					printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
+					mental += 15;
+					break;
+				case 2:
+					printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+					mental -= 10;
+					if (singo == 10) {
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+						mental -= 10;
+					}
+				}
+				Sleep(1000);
+				health -= 2;
+			}
+			timer -= 3;
+			break;
+		case 3://피파
+			for (i = 0; i<6; i++) {
+				srand(time(NULL));
+				randomevent = rand() % 3 + 1;
+				switch (randomevent) {
+				case 1:
+					printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
+					mental += 15;
+					break;
+				case 2:
+					printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+					mental -= 10;
+					if (singo == 10) {
+						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+						mental -= 10;
+					}
+					break;
+				case 3:
+					printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
+				}
+				health -= 2;
+				Sleep(1000);
+			}
+			timer -= 3;
+		}
+	}
+	printf("돈 : %d\n체력 : %d\n허기 : %d\n지능 : %d\n멘탈 : %d\n", money, health, foodbar, intell, mental);
+}
