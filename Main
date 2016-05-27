@@ -1,0 +1,15 @@
+void main() {
+	printf("===============난이도 설정===============\n\n1. 쉬움( 14일 )\t2. 보통( 30일 )\t3. 어려움( 90일 )\n::");
+	scanf("%d",&diff);
+	for (i = 0; i <= diff; i++) {
+		date++;
+		printf("%d일차\n", i);
+		if (health >= 100) health = 100;
+		if (intell >= 100) intell = 100;
+		if (mental >= 100) mental= 100;
+		if (foodbar >= 100) foodbar = 100;
+	}
+}
+
+// 메인은 추후 수정
+// 백업본
