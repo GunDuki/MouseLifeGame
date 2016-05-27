@@ -4,7 +4,7 @@ void PCroom(){
 	int i;
 	int randomevent;
 	int singo;
-	printf("====================30분마다 1게임====================\n====================도중에 게임 못바꿈====================\n====================1시간당 허기 5====================");
+	printf("====================30분마다 1게임====================\n====================도중에 게임 못바꿈====================\n====================1시간당 허기 5====================\n====================시간당 체력 4====================");
 	printf("PC방에 왔습니다.\n1.1시간(1000원)\t2.2시간(2000원)\t3.3시간(3000원)");
 	scanf("%d",&pctime);
 	printf("어떤게임을 하시겠습니다.\n1.서든\t2.롤\t3.피파");
@@ -31,6 +31,7 @@ void PCroom(){
 						mental-=10;
 					}
 				}
+				health-=2;
 			}
 			break;
 		case 2://롤
@@ -52,6 +53,7 @@ void PCroom(){
 							mental-=10;
 					}
 				}
+					health-=2;
 			}
 			break;
 		case 3://피파
@@ -75,6 +77,7 @@ void PCroom(){
 						printf("피파에서 무승부를하였습니다. 멘탈 그대로");
 				}
 			}
+			health-=2;
 		}
 	case 2:
 		switch(gamechoice){
@@ -97,6 +100,7 @@ void PCroom(){
 						mental-=10;
 					}
 				}
+				health-=2;
 			}
 			break;
 		case 2://롤
@@ -118,6 +122,7 @@ void PCroom(){
 							mental-=10;
 					}
 				}
+					health-=2;
 			}
 			break;
 		case 3://피파
@@ -141,6 +146,7 @@ void PCroom(){
 						printf("피파에서 무승부를하였습니다. 멘탈 그대로");
 				}
 			}
+			health-=2;
 		}
 	case 3:
 		switch(gamechoice){
@@ -163,6 +169,7 @@ void PCroom(){
 						mental-=10;
 					}
 				}
+				health-=2;
 			}
 			break;
 		case 2://롤
@@ -184,6 +191,7 @@ void PCroom(){
 							mental-=10;
 					}
 				}
+					health-=2;
 			}
 			break;
 		case 3://피파
@@ -206,6 +214,7 @@ void PCroom(){
 					case 3:
 						printf("피파에서 무승부를하였습니다. 멘탈 그대로");
 				}
+				health-=2;
 			}
 		}
 	}
