@@ -776,6 +776,9 @@ void garaoke(){
 						foodbar-=30;
 						break;
 					}
+					case 2:
+						printf("노래방에서 나갑니다\n");
+					}
 				}
 	if (health >= 100) health = 100;
 	if (intell >= 100) intell = 100;
