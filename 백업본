@@ -205,274 +205,265 @@ int street()// 길거리 함수
 	}
 
 }
-int PCroom() {
+void PCroom(){
 	int pctime;
 	int gamechoice;
 	int i;
 	int randomevent;
-	int singo = 0;
-	//printf("====================30분마다 1게임====================\n====================도중에 게임 못바꿈====================\n====================1시간당 허기 5====================\n====================시간당 체력 4====================");
-	printf("===============PC방===============\n\n");
-	printf("1. 1시간(1000원)\t2. 2시간(2000원)\t3. 3시간(3000원)\n4. 나가기\n::");
-	scanf("%d", &pctime);
-	if (pctime == 4) {
-	printf("PC방에서 나갑니다.\n");
-	system("pause");
-	system("cls");
-	return 0;
-}
-	printf("어떤게임을 하시겠습니다.\n1.서든\t2.롤\t3.피파\n::");
-	scanf("%d", &gamechoice);
-	switch (pctime) {
+	int singo=0;
+	printf("====================30분마다 1게임====================\n====================도중에 게임 못바꿈====================\n====================1시간당 허기 5====================\n====================시간당 체력 4====================");
+	printf("\nPC방에 왔습니다.\n1.1시간(1000원)\t2.2시간(2000원)\t3.3시간(3000원) ::");
+	scanf("%d",&pctime);
+	printf("어떤게임을 하시겠습니다.\n1.서든\t2.롤\t3.피파 ::");
+	scanf("%d",&gamechoice);
+	switch(pctime){
 	case 1:
-		switch (gamechoice) {
+		switch(gamechoice){
 		case 1://서든
-			for (i = 0; i<2; i++) {
+			for(i=0;i<2;i++){
 				srand(time(NULL));
-				randomevent = rand() % 2 + 1;
-				switch (randomevent) {
+				randomevent=rand()%2+1;
+				switch(randomevent){
 				case 1://서든에서 이길경우
 					printf("서든에서 이겼습니다. ^^ 멘탈 10증가\n");
-					mental += 10;
+					mental+=10;
 					break;
 				case 2://질경우
 					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<\n");
-					mental -= 10;
+					mental-=10;
 					srand(time(NULL));
-					singo = rand() % 10 + 1;
-					if (singo == 10) {
+					singo=rand()%10+1;
+					if(singo==10){
 						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
-						mental -= 10;
+						mental-=10;
 					}
 				}
-				health -= 2;
+				health-=2;
 				Sleep(1000);
 			}
-			timer -= 1;
-			money -= 1000;
+			timer-=1;
+			money-=1000;
+			foodbar-=5;
 			break;
 		case 2://롤
-			for (i = 0; i<2; i++) {
+			for(i=0;i<2;i++){
 				srand(time(NULL));
-				randomevent = rand() % 2 + 1;
-				srand(time(NULL));
-				randomevent = rand() % 2 + 1;
-				switch (randomevent) {
-				case 1:
-					printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
-					mental += 15;
-					break;
-				case 2:
-					printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
-					mental -= 10;
-					if (singo == 10) {
-						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
-						mental -= 10;
+				randomevent=rand()%2+1;
+					srand(time(NULL));
+					randomevent=rand()%2+1;
+					switch(randomevent){
+					case 1:
+						printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
+						mental+=15;
+						break;
+					case 2:
+						printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+						mental-=10;
+						if(singo==10){
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+							mental-=10;
 					}
 				}
-				health -= 2;
-				Sleep(1000);
+					health-=2;
+					Sleep(1000);
 			}
-			timer -= 1;
-			money -= 1000;
-			system("pause");
-			system("cls");
+			timer-=1;
+			money-=1000;
+			foodbar-=5;
 			break;
 		case 3://피파
-			for (i = 0; i<2; i++) {
+			for(i=0;i<2;i++){
 				srand(time(NULL));
-				randomevent = rand() % 3 + 1;
-				switch (randomevent) {
-				case 1:
-					printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
-					mental += 15;
-					break;
-				case 2:
-					printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
-					mental -= 10;
-					if (singo == 10) {
-						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
-						mental -= 10;
+				randomevent=rand()%3+1;
+				switch(randomevent){
+					case 1:
+						printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
+						mental+=15;
+						break;
+					case 2:
+						printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+						mental-=10;
+						if(singo==10){
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+							mental-=10;
 					}
-					break;
-				case 3:
-					printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
+						break;
+					case 3:
+						printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
 				}
 				Sleep(1000);
-				health -= 2;
+				health-=2;
 			}
-			timer -= 1;
-			money -= 1000;
+			timer-=1;
+			money-=1000;
+			foodbar-=5;
 		}
-		system("pause");
-		system("cls");
 		break;
 	case 2:
-		switch (gamechoice) {
+		switch(gamechoice){
 		case 1://서든
-			for (i = 0; i<4; i++) {
+			for(i=0;i<4;i++){
 				srand(time(NULL));
-				randomevent = rand() % 2 + 1;
-				switch (randomevent) {
+				randomevent=rand()%2+1;
+				switch(randomevent){
 				case 1://서든에서 이길경우
 					printf("서든에서 이겼습니다. ^^ 멘탈 10증가\n");
-					mental += 10;
+					mental+=10;
 					break;
 				case 2://질경우
 					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<\n");
-					mental -= 10;
+					mental-=10;
 					srand(time(NULL));
-					singo = rand() % 10 + 1;
-					if (singo == 10) {
+					singo=rand()%10+1;
+					if(singo==10){
 						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
-						mental -= 10;
+						mental-=10;
 					}
 				}
-				health -= 2;
+				health-=2;
 				Sleep(1000);
 			}
-			timer -= 2;
-			money -= 2000;
-			system("pause");
-			system("cls");
+			timer-=2;
+			money-=2000;
+			foodbar-=10;
 			break;
 		case 2://롤
-			for (i = 0; i<4; i++) {
+			for(i=0;i<4;i++){
 				srand(time(NULL));
-				randomevent = rand() % 2 + 1;
-				srand(time(NULL));
-				randomevent = rand() % 2 + 1;
-				switch (randomevent) {
-				case 1:
-					printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
-					mental += 15;
-					break;
-				case 2:
-					printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
-					mental -= 10;
-					if (singo == 10) {
-						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
-						mental -= 10;
+				randomevent=rand()%2+1;
+					srand(time(NULL));
+					randomevent=rand()%2+1;
+					switch(randomevent){
+					case 1:
+						printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
+						mental+=15;
+						break;
+					case 2:
+						printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+						mental-=10;
+						if(singo==10){
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+							mental-=10;
 					}
 				}
-				health -= 2;
-				Sleep(1000);
+					health-=2;
+					Sleep(1000);
 			}
-			timer -= 2;
-			money -= 2000;
-			system("pause");
-			system("cls");
+			timer-=2;
+			money-=2000;
+			foodbar-=10;
 			break;
 		case 3://피파
-			for (i = 0; i<4; i++) {
+			for(i=0;i<4;i++){
 				srand(time(NULL));
-				randomevent = rand() % 3 + 1;
-				switch (randomevent) {
-				case 1:
-					printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
-					mental += 15;
-					break;
-				case 2:
-					printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
-					mental -= 10;
-					if (singo == 10) {
-						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
-						mental -= 10;
+				randomevent=rand()%3+1;
+				switch(randomevent){
+					case 1:
+						printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
+						mental+=15;
+						break;
+					case 2:
+						printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+						mental-=10;
+						if(singo==10){
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+							mental-=10;
 					}
-					break;
-				case 3:
-					printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
+						break;
+					case 3:
+						printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
 				}
 				Sleep(1000);
-				health -= 2;
+				health-=2;
 			}
-			timer -= 2;
-			money -= 2000;
+			timer-=2;
+			money-=2000;
+			foodbar-=10;
 		}
-		system("pause");
-		system("cls");
 		break;
 	case 3:
-		switch (gamechoice) {
+		switch(gamechoice){
 		case 1://서든
-			for (i = 0; i<6; i++) {
+			for(i=0;i<6;i++){
 				srand(time(NULL));
-				randomevent = rand() % 2 + 1;
-				switch (randomevent) {
+				randomevent=rand()%2+1;
+				switch(randomevent){
 				case 1://서든에서 이길경우
 					printf("서든에서 이겼습니다. ^^ 멘탈 10증가\n");
-					mental += 10;
+					mental+=10;
 					break;
 				case 2://질경우
 					printf("서든에서 졌습니다. 윤형이는 화가나서 욕을했습니다. 멘탈 10감소 >_<\n");
-					mental -= 10;
+					mental-=10;
 					srand(time(NULL));
-					singo = rand() % 10 + 1;
-					if (singo == 10) {
+					singo=rand()%10+1;
+					if(singo==10){
 						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
-						mental -= 10;
+						mental-=10;
 					}
 				}
 				Sleep(1000);
-				health -= 2;
+				health-=2;
 			}
-			timer -= 3;
-			money -= 2000;
+			timer-=3;
+			money-=3000;
+			foodbar-=15;
 			break;
 		case 2://롤
-			for (i = 0; i<6; i++) {
+			for(i=0;i<6;i++){
 				srand(time(NULL));
-				randomevent = rand() % 2 + 1;
-				srand(time(NULL));
-				randomevent = rand() % 2 + 1;
-				switch (randomevent) {
-				case 1:
-					printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
-					mental += 15;
-					break;
-				case 2:
-					printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
-					mental -= 10;
-					if (singo == 10) {
-						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
-						mental -= 10;
+				randomevent=rand()%2+1;
+					srand(time(NULL));
+					randomevent=rand()%2+1;
+					switch(randomevent){
+					case 1:
+						printf("롤에서 이겼습니다. ^^ 멘탈 15증가\n");
+						mental+=15;
+						break;
+					case 2:
+						printf("롤에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+						mental-=10;
+						if(singo==10){
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+							mental-=10;
 					}
 				}
 				Sleep(1000);
-				health -= 2;
+				health-=2;
 			}
-			timer -= 3;
-			money -= 2000;
+			timer-=3;
+			money-=3000;
+			foodbar-=15;
 			break;
 		case 3://피파
-			for (i = 0; i<6; i++) {
+			for(i=0;i<6;i++){
 				srand(time(NULL));
-				randomevent = rand() % 3 + 1;
-				switch (randomevent) {
-				case 1:
-					printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
-					mental += 15;
-					break;
-				case 2:
-					printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
-					mental -= 10;
-					if (singo == 10) {
-						printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
-						mental -= 10;
+				randomevent=rand()%3+1;
+				switch(randomevent){
+					case 1:
+						printf("피파에서 이겼습니다. ^^ 멘탈 10증가\n");
+						mental+=15;
+						break;
+					case 2:
+						printf("피파에서 졌습니다. 화가난 윤형이는 욕을했습니다. 멘탈 감소 10 >_<\n");
+						mental-=10;
+						if(singo==10){
+							printf("욕을해서 정지먹었습니다. 멘탈 추가로 10감소 >_<\n");
+							mental-=10;
 					}
-					break;
-				case 3:
-					printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
+						break;
+					case 3:
+						printf("피파에서 무승부를하였습니다. 멘탈 그대로\n");
 				}
-				health -= 2;
+				health-=2;
 				Sleep(1000);
 			}
-			timer -= 3;
-			money -= 2000;
-
+			timer-=3;
+			money-=3000;
+			foodbar-=15;
 		}
 	}
-	printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+	printf("돈 : %d\n체력 : %d\n허기 : %d\n지능 : %d\n멘탈 : %d\n시간 : %d",money,health,foodbar,intell,mental,timer);
 }
 int ptj()//아르바이트 함수
 {
