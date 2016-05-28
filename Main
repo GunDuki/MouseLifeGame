@@ -1,15 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <windows.h>
+int  ptj();
+int  street();
+int  PCroom();
+int hospi();
+int money = 20000; // 돈
+int timer=18; // 시간
+int health = 100; // 체력
+int intell = 100; // 지능
+int foodbar = 100; // 허기
+int mental = 100; // 멘탈
+int diff, i; // 난이도 , for 변수
+int day; // 요일
+int date = 0; // 날짜
+
 void main() {
+	printf("===============RULE===============\n\n- 체력, 지능, 허기, 멘탈을 관리하세요\n\n- 24시간 기준으로 자는시간 6시간을 제외한 18시간이 활동 시간입니다.\n\n");
+	system("pause");
+	system("cls");
 	printf("===============난이도 설정===============\n\n1. 쉬움( 14일 )\t2. 보통( 30일 )\t3. 어려움( 90일 )\n::");
 	scanf("%d",&diff);
+	system("cls");
 	for (i = 0; i <= diff; i++) {
 		date++;
-		printf("%d일차\n", i);
+		printf(" **[ %d일차 ]** \n\n", i);
 		if (health >= 100) health = 100;
 		if (intell >= 100) intell = 100;
 		if (mental >= 100) mental= 100;
 		if (foodbar >= 100) foodbar = 100;
+		hospi();
+		PCroom();
+		street();
+		ptj();
 	}
 }
-
 // 메인은 추후 수정
 // 백업본
