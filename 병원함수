@@ -1,8 +1,5 @@
 int hospi(){ //병원 함수
 	int choice;
-	if (health >= 100) {
-		printf("체력이 꽉 차있어 들어갈 필요가 없습니다.\n\n"); return 0;
-	}
 	while(1){
 	printf("===============병원===============\n\n1. 응급처치 ( 5000원 / 체력 [30] up )\n2. 건강검진 ( 10000원 / 체력 [50] up )\n3. 수술 ( 40000원 / 체력 [100] up )\n4. 나가기\n::");
 	scanf("%d", &choice); // 선택
@@ -17,7 +14,7 @@ int hospi(){ //병원 함수
 					health += 30; // 체력 30up
 					money -= 5000; // 돈 5000원 감소
 					printf("응급처치가 완료되었습니다.\n\n");
-					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money,(18-timer)+6);
 					break;
 				}
 				else { printf("이미 체력이 꽉차있습니다.\n"); break; }
@@ -35,7 +32,7 @@ int hospi(){ //병원 함수
 					health += 50; // 체력 50up
 					money -= 10000; // 돈 10000원 감소
 					printf("건강검진이 완료되었습니다.\n\n");
-					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 					break;
 				}
 				else { printf("이미 체력이 꽉차있습니다.\n"); break; }
@@ -52,7 +49,7 @@ int hospi(){ //병원 함수
 					health += 100; // 체력 100up
 					money -= 40000; // 돈 40000원 감소
 					printf("수술이 완료되었습니다.\n\n");
-					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 					break;
 				}
 				else { printf("이미 체력이 꽉차있습니다.\n"); break; }
@@ -62,6 +59,8 @@ int hospi(){ //병원 함수
 		else { printf("돈이 부족합니다.\n"); break; }
 	case 4:
 		printf("병원을 나갑니다.\n\n");
+		system("pause");
+		system("cls");
 		return 0;
 	default:
 		printf("잘못된 값을 선택하였습니다.\n");
