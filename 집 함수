@@ -1,0 +1,84 @@
+void home() {
+	int choice;
+	char a;
+	int randomevent;
+	printf("집에 왔습니다.\n");
+	while (1) {
+		printf("===============HOME===============\n\n1. 냉장고\n2. TV\n3. 침실\n4. 목욕\n::");
+		scanf("%d", &choice);
+		switch (choice) {
+		case 1:
+			printf("===냉장고===\n\n");
+			srand(time(NULL));
+			randomevent = rand() % 2 + 1;
+			if (randomevent == 1) {
+				printf("냉장고를 뒤져보니 음식물이 나왔습니다.\n");
+				foodbar += 20;
+				timer -= 1;
+			}
+			else printf("냉장고를 뒤져보아도 아무것도 나오지 않았습니다..\n"); timer -= 1;
+			break;
+		case 2:
+			srand(time(NULL));
+			randomevent = rand() % 3 + 1;
+			if (randomevent == 1) {
+				printf("♬뽀로로를 시청중입니다.\n");
+				timer -= 2;
+				intell -= 10;
+				foodbar -= 20;
+				mental += 15;
+				printf("뽀로로 시청을 2시간동안 했습니다.\n");
+				system("pause");
+				system("cls");
+			}
+			else if (randomevent == 2) {
+				printf("다큐멘터리를 시청중입니다.\n\n");
+				printf("종윤 : 크르릉...\n");
+				sleep(1000);
+				printf("나레이션 : 정말 맛있게도 먹네요.\n");
+				timer -= 3;
+				intell += 10;
+				foodbar -= 20;
+				mental -= 10;
+				printf("다큐멘터리 시청을 3시간동안 했습니다.\n");
+				system("pause");
+				system("cls");
+			}
+			else if (randomevent == 3) {
+				printf("애니를 시청중입니다.\n");
+				timer -= 1;
+				health -= 10;
+				intell -= 10;
+				foodbar -= 20;
+				mental += 50;
+				printf("애니를 시청했습니다.\n");
+				system("pause");
+				system("cls");
+			}
+			break;
+		case 3:
+			printf("잠을 잘까요? ( y / n )\n::");
+			scanf("%c", &a);
+			if (a == 'Y' && a == 'y') {
+				timer -= 6;
+				health += 20;
+				foodbar -= 20;
+				mental += 20;
+			}
+			else break;
+			break;
+		}
+		if (health >= 100) health = 100;
+		if (intell >= 100) intell = 100;
+		if (mental >= 100) mental = 100;
+		if (foodbar >= 100) foodbar = 100;
+		printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+		system("pause");
+		system("cls");
+	}
+}
+
+// 2016-5-28일자
+// 아직 작동 불가
+// 링크오류 수정 안함
+// 외부참조 오류 수정 안함 
