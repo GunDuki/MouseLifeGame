@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <windows.h>
-void ptj();
-void street();
-void PCroom();
+int  ptj();
+int  street();
+int  PCroom();
 int hospi();
 int money = 20000; // 돈
 int timer=18; // 시간
@@ -17,11 +17,13 @@ int day; // 요일
 int date = 0; // 날짜
 
 void main() {
+	printf("===============RULE===============\n\n- 체력, 지능, 허기, 멘탈을 관리하세요\n\n- 24시간 기준으로 자는시간 6시간을 제외한 18시간이 활동 시간입니다.\n\n");
+	system("pause");
 	printf("===============난이도 설정===============\n\n1. 쉬움( 14일 )\t2. 보통( 30일 )\t3. 어려움( 90일 )\n::");
 	scanf("%d",&diff);
 	for (i = 0; i <= diff; i++) {
 		date++;
-		printf("%d일차\n", i);
+		printf(" **[ %d일차 ]** \n\n", i);
 		if (health >= 100) health = 100;
 		if (intell >= 100) intell = 100;
 		if (mental >= 100) mental= 100;
@@ -35,9 +37,6 @@ void main() {
 
 int hospi(){ //병원 함수
 	int choice;
-	if (health >= 100) {
-		printf("체력이 꽉 차있어 들어갈 필요가 없습니다.\n\n"); return 0;
-	}
 	while(1){
 	printf("===============병원===============\n\n1. 응급처치 ( 5000원 / 체력 [30] up )\n2. 건강검진 ( 10000원 / 체력 [50] up )\n3. 수술 ( 40000원 / 체력 [100] up )\n4. 나가기\n::");
 	scanf("%d", &choice); // 선택
@@ -52,7 +51,7 @@ int hospi(){ //병원 함수
 					health += 30; // 체력 30up
 					money -= 5000; // 돈 5000원 감소
 					printf("응급처치가 완료되었습니다.\n\n");
-					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money,(18-timer)+6);
 					break;
 				}
 				else { printf("이미 체력이 꽉차있습니다.\n"); break; }
@@ -103,7 +102,7 @@ int hospi(){ //병원 함수
 		}
 	}
 }
-void street()// 길거리 함수
+int street()// 길거리 함수
 {
 	int pick, eat;
 	printf("==============길거리==============\n\n1. 분식점\t2. 편의점\t3. 음식물 쓰레기\n::");
@@ -195,14 +194,15 @@ void street()// 길거리 함수
 	}
 
 }
-void PCroom() {
+int PCroom() {
 	int pctime;
 	int gamechoice;
 	int i;
 	int randomevent;
 	int singo = 0;
-	printf("====================30분마다 1게임====================\n====================도중에 게임 못바꿈====================\n====================1시간당 허기 5====================\n====================시간당 체력 4====================");
-	printf("\nPC방에 왔습니다.\n1.1시간(1000원)\t2.2시간(2000원)\t3.3시간(3000원)\n::");
+	//printf("====================30분마다 1게임====================\n====================도중에 게임 못바꿈====================\n====================1시간당 허기 5====================\n====================시간당 체력 4====================");
+	printf("===============PC방===============\n\n");
+	printf("1. 1시간(1000원)\t2. 2시간(2000원)\t3. 3시간(3000원)\n4. 나가기\n::");
 	scanf("%d", &pctime);
 	printf("어떤게임을 하시겠습니다.\n1.서든\t2.롤\t3.피파\n::");
 	scanf("%d", &gamechoice);
@@ -441,10 +441,14 @@ void PCroom() {
 			timer -= 3;
 			money -= 2000;
 		}
+	default:
+		printf("PC방에서 나갑니다.\n");
+		return 0;
+		break;
 	}
 	printf("돈 : %d\n체력 : %d\n허기 : %d\n지능 : %d\n멘탈 : %d\n", money, health, foodbar, intell, mental);
 }
-void ptj()//아르바이트 함수
+int ptj()//아르바이트 함수
 {
 	int choice;
 	printf("===============아르바이트 선택==============\n\n1. 편돌이\t2. 막노동\t3. 허더 따까리\n::");
