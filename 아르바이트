@@ -1,44 +1,44 @@
-void ptj()//아르바이트 함수
+int ptj()//아르바이트 함수
 {
 	int choice;
-	printf("===============아르바이트 선택==============\n\n1. 편돌이\t2. 막노동\t3. 허더 따까리\n::");
+	printf("===============아르바이트 선택==============\n\n1. 편돌이\n2. 막노동\n3. 허더 따까리\n::");
 	scanf("%d", &choice);
 	switch (choice)
 	{
-		case 1:
-			printf("편돌이로 취직하여 단순노동을 합니다......\n");
-			money += 4000;
-			timer -= 4; //4시간 경과 (감소)
-			health -= 15;//체력 10 감소 
-			intell -= 5;// 지능 5감소
-			foodbar -= 15;//허기 15감소 
-			mental -= 5;
-			printf("편의점 알바가 끝났습니다.\n");
-			printf("소유한 돈 : %d 남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d", money, timer, health, intell, foodbar, mental);
-			break;
-			
-		case 2:
-			printf("막노동을 시작합니다......\n");
-			money += 12000;
-			timer -= 6;
-			health -= 30;
-			intell -= 5;
-			foodbar -= 25;
-			mental -= 10;
-			printf("막노동이 끝났습니다.\n");
-			printf("소유한 돈 : %d 남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d", money, timer, health, intell, foodbar, mental);
-			break;
-			
-		case 3:
-			printf("!!!!!허더 따까리짓을 시작합니다!!!!!\n");
-			money += 15000;
-			timer -= 2
-			health -= 40;
-			intell -= 30;
-			foodbar -= 30;
-			mental -= 25;
-			printf("드디어 허더에게서 벗어났습니다.....\n");
-			printf("소유한 돈 : %d 남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d", money, timer, health, intell, foodbar, mental);
+	case 1:
+		printf("편돌이로 취직하여 단순노동을 합니다......\n");
+		money += 4000;
+		timer -= 4; //4시간 경과 (감소)
+		health -= 15;//체력 10 감소 
+		intell -= 5;// 지능 5감소
+		foodbar -= 15;//허기 15감소 
+		mental -= 5;
+		printf("편의점 알바가 끝났습니다.\n");
+		printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+		break;
+
+	case 2:
+		printf("막노동을 시작합니다......\n");
+		money += 12000;
+		timer -= 6;
+		health -= 30;
+		intell -= 5;
+		foodbar -= 25;
+		mental -= 10;
+		printf("막노동이 끝났습니다.\n");
+		printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+		break;
+
+	case 3:
+		printf("!!!!!허더 따까리짓을 시작합니다!!!!!\n");
+		money += 15000;
+		timer -= 2;
+		health -= 40;
+		intell -= 30;
+		foodbar -= 30;
+		mental -= 25;
+		printf("드디어 허더에게서 벗어났습니다.....\n");
+		printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 	}
 	return 0;
 }
