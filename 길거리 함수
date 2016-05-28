@@ -1,92 +1,99 @@
-void street()// 길거리 함수
+int street()// 길거리 함수
 {
-	int pick,eat; 
-	printf("==============길거리==============\n\n1. 분식점\t2. 편의점\t3. 음식물 쓰레기");
-	scanf("%d",&pick);
-	switch(pick)
+	int pick, eat;
+	printf("==============길거리==============\n\n1. 분식점\n2. 편의점\n3. 음식물 쓰레기\n::");
+	scanf("%d", &pick);
+	switch (pick)
 	{
+	case 1:
+		printf("분식점에 왔습니다.\n메뉴를 골라주세요:\n1. 떡볶이:2000원\n2. 오뎅:500원\n3. 순대:3500원\n::");
+		scanf("%d", &eat);
+		switch (eat)// 메뉴고르는거 
+		{
 		case 1:
-			printf("분식점에 왔습니다.\n메뉴를 골라주세요:1. 떡볶이:2000원\t2. 오뎅:500원\t3. 순대:3500원");
-			scanf("%d",&eat);
-				switch(eat)// 메뉴고르는거 
-				{
-			 		case 1:
-			 			money-=2000;
-			 			foodbar+=15;
-			 			timer-=1;
-			 			printf("떡볶이를 먹었습니다\n");
-			 			printf("돈: %d\n허기: %d\n시간: %d",money,foodbar,timer); 
-			 			break;
-			 		case 2:
-					 	money-=500;
-			 			foodbar+=10;
-			 			timer-=1;
-			 			printf("오뎅을 먹었습니다\n");
-			 			printf("돈: %d\n허기: %d\n시간: %d",money,foodbar,timer); 
-			 			break;
-			 		case 3:
-			 			money-=3500;
-			 			foodbar+=25;
-			 			timer-=1;
-			 			printf("순대를 먹었습니다\n");
-			 			printf("돈: %d\n허기: %d\n시간: %d",money,foodbar,timer); 
-					 	break;
-			 	}
+			money -= 2000;
+			foodbar += 15;
+			timer -= 1;
+			printf("떡볶이를 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+			break;
 		case 2:
-			printf("편의점에 왔습니다.\n메뉴를 골라주세요:1. 삼각김밥:1000원\t2. 쥬시쿨:500원\t3. 라면:1500원");
-			scanf("%d",&eat);
-				switch(eat)// 메뉴고르는거 
-				{
-			 		case 1:
-			 			money-=1000;
-			 			foodbar+=10;
-			 			timer-=1;
-			 			printf("삼각김밥을 먹었습니다\n");
-			 			printf("돈: %d\n허기: %d\n시간: %d",money,foodbar,timer); 
-			 			break;
-			 		case 2:
-					 	money-=500;
-			 			foodbar+=5;
-			 			timer-=1;
-			 			printf("쥬시쿨을 먹었습니다\n");
-			 			printf("돈: %d\n허기: %d\n시간: %d",money,foodbar,timer); 
-			 			break;
-			 		case 3:
-			 			money-=1500;
-			 			foodbar+=20;
-			 			timer-=1;
-			 			printf("라면을 먹었습니다\n");
-			 			printf("돈: %d\n허기: %d\n시간: %d",money,foodbar,timer); 
-					 	break;
-			 	}		 
+			money -= 500;
+			foodbar += 10;
+			timer -= 1;
+			printf("오뎅을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+			break;
 		case 3:
-			printf("음식물 쓰레기통에 왔습니다.\n메뉴를 골라주세요:1. 먹다남은 생선:0원\t2. 조개껍데기:0원\t3. 라면국물:0원");
-			scanf("%d",&eat);// 여기는 돈이 안주는대신에 허기는채우나 체력 감소 
-				switch(eat)// 메뉴고르는거 
-				{
-			 		case 1:
-			 			health-=5; 
-			 			foodbar+=10;
-			 			timer-=1;
-			 			printf("먹다남은 생선을 먹었습니다\n");
-			 			printf("체력: %d\n허기: %d\n시간: %d",health,foodbar,timer); 
-			 			break;
-			 		case 2:
-					 	health-=5;
-			 			foodbar+=3;
-			 			timer-=1;
-			 			printf("조개껍데기를 먹었습니다\n");
-			 			printf("체력: %d\n허기: %d\n시간: %d",health,foodbar,timer); 
-			 			break;
-			 		case 3:
-			 			health-=10;
-			 			foodbar+=20;
-			 			timer-=1;
-			 			printf("라면국물을 먹었습니다\n");
-			 			printf("체력: %d\n허기: %d\n시간: %d",health,foodbar,timer); 
-					 	break;
-			 	}		 	 
-					 			
-	}		
-			 				 			
+			money -= 3500;
+			foodbar += 25;
+			timer -= 1;
+			printf("순대를 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+			break;
+		}
+		system("pause");
+		system("cls");
+		break;
+	case 2:
+		printf("편의점에 왔습니다.\n메뉴를 골라주세요:1. 삼각김밥:1000원\t2. 쥬시쿨:500원\t3. 라면:1500원\n::");
+		scanf("%d", &eat);
+		switch (eat)// 메뉴고르는거 
+		{
+		case 1:
+			money -= 1000;
+			foodbar += 10;
+			timer -= 1;
+			printf("삼각김밥을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+			break;
+		case 2:
+			money -= 500;
+			foodbar += 5;
+			timer -= 1;
+			printf("쥬시쿨을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+			break;
+		case 3:
+			money -= 1500;
+			foodbar += 20;
+			timer -= 1;
+			printf("라면을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+			break;
+		}
+		system("pause");
+		system("cls");
+		break;
+	case 3:
+		printf("음식물 쓰레기통에 왔습니다.\n메뉴를 골라주세요:1. 먹다남은 생선:0원\n2. 조개껍데기:0원\n3. 라면국물:0원\n::");
+		scanf("%d", &eat);// 여기는 돈이 안주는대신에 허기는채우나 체력 감소 
+		switch (eat)// 메뉴고르는거 
+		{
+		case 1:
+			health -= 5;
+			foodbar += 10;
+			timer -= 1;
+			printf("먹다남은 생선을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+			break;
+		case 2:
+			health -= 5;
+			foodbar += 3;
+			timer -= 1;
+			printf("조개껍데기를 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+			break;
+		case 3:
+			health -= 10;
+			foodbar += 20;
+			timer -= 1;
+			printf("라면국물을 먹었습니다\n");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+			break;
+		}
+		system("pause");
+		system("cls");
+	}
+
 }
