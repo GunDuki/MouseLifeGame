@@ -36,6 +36,7 @@ void PCroom(){
 			}
 			timer-=1;
 			money-=1000;
+			foodbar-=5;
 			break;
 		case 2://롤
 			for(i=0;i<2;i++){
@@ -61,6 +62,7 @@ void PCroom(){
 			}
 			timer-=1;
 			money-=1000;
+			foodbar-=5;
 			break;
 		case 3://피파
 			for(i=0;i<2;i++){
@@ -87,7 +89,9 @@ void PCroom(){
 			}
 			timer-=1;
 			money-=1000;
+			foodbar-=5;
 		}
+		break;
 	case 2:
 		switch(gamechoice){
 		case 1://서든
@@ -114,6 +118,7 @@ void PCroom(){
 			}
 			timer-=2;
 			money-=2000;
+			foodbar-=10;
 			break;
 		case 2://롤
 			for(i=0;i<4;i++){
@@ -139,6 +144,7 @@ void PCroom(){
 			}
 			timer-=2;
 			money-=2000;
+			foodbar-=10;
 			break;
 		case 3://피파
 			for(i=0;i<4;i++){
@@ -165,7 +171,9 @@ void PCroom(){
 			}
 			timer-=2;
 			money-=2000;
+			foodbar-=10;
 		}
+		break;
 	case 3:
 		switch(gamechoice){
 		case 1://서든
@@ -191,7 +199,8 @@ void PCroom(){
 				health-=2;
 			}
 			timer-=3;
-			money-=2000;
+			money-=3000;
+			foodbar-=15;
 			break;
 		case 2://롤
 			for(i=0;i<6;i++){
@@ -216,7 +225,8 @@ void PCroom(){
 				health-=2;
 			}
 			timer-=3;
-			money-=2000;
+			money-=3000;
+			foodbar-=15;
 			break;
 		case 3://피파
 			for(i=0;i<6;i++){
@@ -242,8 +252,9 @@ void PCroom(){
 				Sleep(1000);
 			}
 			timer-=3;
-			money-=2000;
+			money-=3000;
+			foodbar-=15;
 		}
 	}
-	printf("돈 : %d\n체력 : %d\n허기 : %d\n지능 : %d\n멘탈 : %d",money,health,foodbar,intell,mental);
+	printf("돈 : %d\n체력 : %d\n허기 : %d\n지능 : %d\n멘탈 : %d\n시간 : %d",money,health,foodbar,intell,mental,timer);
 }
