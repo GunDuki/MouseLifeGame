@@ -19,8 +19,10 @@ int date = 0; // 날짜
 void main() {
 	printf("===============RULE===============\n\n- 체력, 지능, 허기, 멘탈을 관리하세요\n\n- 24시간 기준으로 자는시간 6시간을 제외한 18시간이 활동 시간입니다.\n\n");
 	system("pause");
+	system("cls");
 	printf("===============난이도 설정===============\n\n1. 쉬움( 14일 )\t2. 보통( 30일 )\t3. 어려움( 90일 )\n::");
 	scanf("%d",&diff);
+	system("cls");
 	for (i = 0; i <= diff; i++) {
 		date++;
 		printf(" **[ %d일차 ]** \n\n", i);
@@ -69,7 +71,7 @@ int hospi(){ //병원 함수
 					health += 50; // 체력 50up
 					money -= 10000; // 돈 10000원 감소
 					printf("건강검진이 완료되었습니다.\n\n");
-					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 					break;
 				}
 				else { printf("이미 체력이 꽉차있습니다.\n"); break; }
@@ -86,7 +88,7 @@ int hospi(){ //병원 함수
 					health += 100; // 체력 100up
 					money -= 40000; // 돈 40000원 감소
 					printf("수술이 완료되었습니다.\n\n");
-					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+					printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 					break;
 				}
 				else { printf("이미 체력이 꽉차있습니다.\n"); break; }
@@ -96,6 +98,8 @@ int hospi(){ //병원 함수
 		else { printf("돈이 부족합니다.\n"); break; }
 	case 4:
 		printf("병원을 나갑니다.\n\n");
+		system("pause");
+		system("cls");
 		return 0;
 	default:
 		printf("잘못된 값을 선택하였습니다.\n");
@@ -105,12 +109,12 @@ int hospi(){ //병원 함수
 int street()// 길거리 함수
 {
 	int pick, eat;
-	printf("==============길거리==============\n\n1. 분식점\t2. 편의점\t3. 음식물 쓰레기\n::");
+	printf("==============길거리==============\n\n1. 분식점\n2. 편의점\n3. 음식물 쓰레기\n::");
 	scanf("%d", &pick);
 	switch (pick)
 	{
 	case 1:
-		printf("분식점에 왔습니다.\n메뉴를 골라주세요:1. 떡볶이:2000원\t2. 오뎅:500원\t3. 순대:3500원\n::");
+		printf("분식점에 왔습니다.\n메뉴를 골라주세요:\n1. 떡볶이:2000원\n2. 오뎅:500원\n3. 순대:3500원\n::");
 		scanf("%d", &eat);
 		switch (eat)// 메뉴고르는거 
 		{
@@ -119,23 +123,26 @@ int street()// 길거리 함수
 			foodbar += 15;
 			timer -= 1;
 			printf("떡볶이를 먹었습니다\n");
-			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 			break;
 		case 2:
 			money -= 500;
 			foodbar += 10;
 			timer -= 1;
 			printf("오뎅을 먹었습니다\n");
-			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 			break;
 		case 3:
 			money -= 3500;
 			foodbar += 25;
 			timer -= 1;
 			printf("순대를 먹었습니다\n");
-			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 			break;
 		}
+		system("pause");
+		system("cls");
+		break;
 	case 2:
 		printf("편의점에 왔습니다.\n메뉴를 골라주세요:1. 삼각김밥:1000원\t2. 쥬시쿨:500원\t3. 라면:1500원\n::");
 		scanf("%d", &eat);
@@ -146,25 +153,28 @@ int street()// 길거리 함수
 			foodbar += 10;
 			timer -= 1;
 			printf("삼각김밥을 먹었습니다\n");
-			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 			break;
 		case 2:
 			money -= 500;
 			foodbar += 5;
 			timer -= 1;
 			printf("쥬시쿨을 먹었습니다\n");
-			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 			break;
 		case 3:
 			money -= 1500;
 			foodbar += 20;
 			timer -= 1;
 			printf("라면을 먹었습니다\n");
-			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 			break;
 		}
+		system("pause");
+		system("cls");
+		break;
 	case 3:
-		printf("음식물 쓰레기통에 왔습니다.\n메뉴를 골라주세요:1. 먹다남은 생선:0원\t2. 조개껍데기:0원\t3. 라면국물:0원\n::");
+		printf("음식물 쓰레기통에 왔습니다.\n메뉴를 골라주세요:1. 먹다남은 생선:0원\n2. 조개껍데기:0원\n3. 라면국물:0원\n::");
 		scanf("%d", &eat);// 여기는 돈이 안주는대신에 허기는채우나 체력 감소 
 		switch (eat)// 메뉴고르는거 
 		{
@@ -173,24 +183,25 @@ int street()// 길거리 함수
 			foodbar += 10;
 			timer -= 1;
 			printf("먹다남은 생선을 먹었습니다\n");
-			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 			break;
 		case 2:
 			health -= 5;
 			foodbar += 3;
 			timer -= 1;
 			printf("조개껍데기를 먹었습니다\n");
-			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 			break;
 		case 3:
 			health -= 10;
 			foodbar += 20;
 			timer -= 1;
 			printf("라면국물을 먹었습니다\n");
-			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n\n", health, intell, mental, foodbar, money);
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 			break;
 		}
-
+		system("pause");
+		system("cls");
 	}
 
 }
@@ -204,6 +215,12 @@ int PCroom() {
 	printf("===============PC방===============\n\n");
 	printf("1. 1시간(1000원)\t2. 2시간(2000원)\t3. 3시간(3000원)\n4. 나가기\n::");
 	scanf("%d", &pctime);
+	if (pctime == 4) {
+	printf("PC방에서 나갑니다.\n");
+	system("pause");
+	system("cls");
+	return 0;
+}
 	printf("어떤게임을 하시겠습니다.\n1.서든\t2.롤\t3.피파\n::");
 	scanf("%d", &gamechoice);
 	switch (pctime) {
@@ -258,6 +275,8 @@ int PCroom() {
 			}
 			timer -= 1;
 			money -= 1000;
+			system("pause");
+			system("cls");
 			break;
 		case 3://피파
 			for (i = 0; i<2; i++) {
@@ -285,6 +304,9 @@ int PCroom() {
 			timer -= 1;
 			money -= 1000;
 		}
+		system("pause");
+		system("cls");
+		break;
 	case 2:
 		switch (gamechoice) {
 		case 1://서든
@@ -311,6 +333,8 @@ int PCroom() {
 			}
 			timer -= 2;
 			money -= 2000;
+			system("pause");
+			system("cls");
 			break;
 		case 2://롤
 			for (i = 0; i<4; i++) {
@@ -336,6 +360,8 @@ int PCroom() {
 			}
 			timer -= 2;
 			money -= 2000;
+			system("pause");
+			system("cls");
 			break;
 		case 3://피파
 			for (i = 0; i<4; i++) {
@@ -363,6 +389,9 @@ int PCroom() {
 			timer -= 2;
 			money -= 2000;
 		}
+		system("pause");
+		system("cls");
+		break;
 	case 3:
 		switch (gamechoice) {
 		case 1://서든
@@ -440,18 +469,15 @@ int PCroom() {
 			}
 			timer -= 3;
 			money -= 2000;
+
 		}
-	default:
-		printf("PC방에서 나갑니다.\n");
-		return 0;
-		break;
 	}
-	printf("돈 : %d\n체력 : %d\n허기 : %d\n지능 : %d\n멘탈 : %d\n", money, health, foodbar, intell, mental);
+	printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 }
 int ptj()//아르바이트 함수
 {
 	int choice;
-	printf("===============아르바이트 선택==============\n\n1. 편돌이\t2. 막노동\t3. 허더 따까리\n::");
+	printf("===============아르바이트 선택==============\n\n1. 편돌이\n2. 막노동\n3. 허더 따까리\n::");
 	scanf("%d", &choice);
 	switch (choice)
 	{
@@ -464,7 +490,7 @@ int ptj()//아르바이트 함수
 		foodbar -= 15;//허기 15감소 
 		mental -= 5;
 		printf("편의점 알바가 끝났습니다.\n");
-		printf("소유한 돈 : %d 남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d\n", money, timer, health, intell, foodbar, mental);
+		printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 		break;
 
 	case 2:
@@ -476,7 +502,7 @@ int ptj()//아르바이트 함수
 		foodbar -= 25;
 		mental -= 10;
 		printf("막노동이 끝났습니다.\n");
-		printf("소유한 돈 : %d 남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d\n", money, timer, health, intell, foodbar, mental);
+		printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 		break;
 
 	case 3:
@@ -488,7 +514,7 @@ int ptj()//아르바이트 함수
 		foodbar -= 30;
 		mental -= 25;
 		printf("드디어 허더에게서 벗어났습니다.....\n");
-		printf("소유한 돈 : %d 남은시간 : %d 남은체력 : %d 남은지능 : %d 허기지수 : %d 멘탈강도 : %d\n", money, timer, health, intell, foodbar, mental);
+		printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 	}
 	return 0;
 }
