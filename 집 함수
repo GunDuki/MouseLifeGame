@@ -34,7 +34,7 @@ void home() {
 			else if (randomevent == 2) {
 				printf("다큐멘터리를 시청중입니다.\n\n");
 				printf("종윤 : 크르릉...\n");
-				sleep(1000);
+				Sleep(1000);
 				printf("나레이션 : 정말 맛있게도 먹네요.\n");
 				timer -= 3;
 				intell += 10;
@@ -59,7 +59,7 @@ void home() {
 		case 3:
 			printf("잠을 잘까요? ( y / n )\n::");
 			scanf("%c", &a);
-			if (a == 'Y' && a == 'y') {
+			if (a == 'Y' || a == 'y') {
 				timer -= 6;
 				health += 20;
 				foodbar -= 20;
