@@ -776,6 +776,7 @@ void garaoke(){
 						foodbar-=30;
 						break;
 					}
+					break;
 					case 2:
 						printf("노래방에서 나갑니다\n");
 					}
