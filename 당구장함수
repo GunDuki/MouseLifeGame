@@ -6,16 +6,6 @@ void dango(){
 	for(i=0;i<j;i++){
 	printf("\t\t===당구장에왔습니다.===\n\t\t===당구1번칠때마다 10분===\n\t\t===시간당 허기 15===\n1.당구치기\t\t2.나가기\n::");
 	scanf("%d",&choice);
-	if(choice==2){
-		printf("당구장에서 나갑니다.\n");
-	}
-	else if(choice==1){
-
-	}
-	else{
-		j++;
-	}
-	}
 	switch(choice){
 	case 1:
 		for(i=0;i<j;i++){
@@ -48,13 +38,6 @@ void dango(){
 					score++;
 				}
 			}
-			if(score>=3){
-				printf("당구에서 이겨서 멘탈 풀회복\n");
-				mental=100;
-			}
-			else{
-				printf("당구에서 짐\n");
-			}
 			timer-=1;
 			foodbar-=15;
 			money-=6000;
@@ -85,10 +68,23 @@ void dango(){
 					score++;
 				}
 			}
+			timer-=2;
+			foodbar-=30;
+			money-=10000;
 			break;
 		default:
-			printf("잘못입력하셨습니다\n");
+			printf("잘못입력하셨습니다.\n");
 			j++;
+		}
+		break;
+	case 2:
+		printf("당구장에서 나갑니다.\n");
+		break;
+	default:
+		printf("잘못입력하셨습니다.\n");
+			}
+		}
+	}
 		if(score>=5){
 				printf("당구에서 이겨서 멘탈 풀회복\n");
 				mental=100;
@@ -96,11 +92,6 @@ void dango(){
 			else{
 				printf("당구에서 짐\n");
 			}
-			timer-=2;
-			foodbar-=30;
-			money-=10000;
-		}
-	}
 	if (health >= 100) health = 100;
 	if (intell >= 100) intell = 100;
 	if (mental >= 100) mental= 100;
@@ -108,5 +99,4 @@ void dango(){
 	printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
 	system("pause");
 	system("cls");
-	}
 }
