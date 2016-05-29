@@ -1,0 +1,112 @@
+void dango(){
+	int choice;
+	int timechoice;
+	int i,j=1,shot;
+	int score=0;
+	for(i=0;i<j;i++){
+	printf("\t\t===당구장에왔습니다.===\n\t\t===당구1번칠때마다 10분===\n\t\t===시간당 허기 15===\n1.당구치기\t\t2.나가기\n::");
+	scanf("%d",&choice);
+	if(choice==2){
+		printf("당구장에서 나갑니다.\n");
+	}
+	else if(choice==1){
+
+	}
+	else{
+		j++;
+	}
+	}
+	switch(choice){
+	case 1:
+		for(i=0;i<j;i++){
+		printf("\n1.1시간(6000원)\t\t2.2시간(10000원)\n::");
+		scanf("%d",&timechoice);
+		switch(timechoice){
+		case 1:
+			for(i=0;i<6;i++){
+				srand(time(NULL));
+				shot=rand()%10+1;
+				switch(shot){
+				case 1:
+				case 2:
+				case 3:
+					printf("1개는쳤는데 1개는 못맞춤\n");
+					Sleep(1000);
+					break;
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+					printf("둘다못맞춤\n");
+					Sleep(1000);
+					break;
+				case 8:
+				case 9:
+				case 10:
+					printf("둘다맞춤\n");
+					Sleep(1000);
+					score++;
+				}
+			}
+			if(score>=3){
+				printf("당구에서 이겨서 멘탈 풀회복\n");
+				mental=100;
+			}
+			else{
+				printf("당구에서 짐\n");
+			}
+			timer-=1;
+			foodbar-=15;
+			money-=6000;
+			break;
+		case 2:
+			for(i=0;i<12;i++){
+				srand(time(NULL));
+				shot=rand()%10+1;
+				switch(shot){
+				case 1:
+				case 2:
+				case 3:
+					printf("1개는쳤는데 1개는 못맞춤\n");
+					Sleep(1000);
+					break;
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+					printf("둘다못맞춤\n");
+					Sleep(1000);
+					break;
+				case 8:
+				case 9:
+				case 10:
+					printf("둘다맞춤\n");
+					Sleep(1000);
+					score++;
+				}
+			}
+			break;
+		default:
+			printf("잘못입력하셨습니다\n");
+			j++;
+		if(score>=5){
+				printf("당구에서 이겨서 멘탈 풀회복\n");
+				mental=100;
+			}
+			else{
+				printf("당구에서 짐\n");
+			}
+			timer-=2;
+			foodbar-=30;
+			money-=10000;
+		}
+	}
+	if (health >= 100) health = 100;
+	if (intell >= 100) intell = 100;
+	if (mental >= 100) mental= 100;
+	if (foodbar >= 100) foodbar = 100;
+	printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+	system("pause");
+	system("cls");
+	}
+}
