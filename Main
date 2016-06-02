@@ -2,39 +2,94 @@
 #include <stdlib.h>
 #include <time.h>
 #include <windows.h>
-int  ptj();
-int  street();
-int  PCroom();
-int hospi();
+void  ptj();
+void dango();
+int rule();
+void  street();
+void home();
+void  PCroom();
+void hospi();
+void garaoke();
+int rulecount = 1; // 룰을 한번만 보여주기 위한 변수
 int money = 20000; // 돈
-int timer=18; // 시간
+int timer = 18; // 시간
 int health = 100; // 체력
 int intell = 100; // 지능
 int foodbar = 100; // 허기
 int mental = 100; // 멘탈
 int diff, i; // 난이도 , for 변수
 int day; // 요일
-int date = 0; // 날짜
-
-void main() {
+int date = 1; // 날짜
+int rule(){
 	printf("===============RULE===============\n\n- 체력, 지능, 허기, 멘탈을 관리하세요\n\n- 24시간 기준으로 자는시간 6시간을 제외한 18시간이 활동 시간입니다.\n\n");
 	system("pause");
 	system("cls");
-	printf("===============난이도 설정===============\n\n1. 쉬움( 14일 )\t2. 보통( 30일 )\t3. 어려움( 90일 )\n::");
-	scanf("%d",&diff);
+	printf("===============난이도 설정===============\n\n1. 쉬움( 14일 )\n\n2. 보통( 30일 )\n\n3. 어려움( 90일 )\n::");
+	scanf("%d", &diff);
 	system("cls");
+	rulecount--;
+}
+void main() {
+	int ch,ch1;// 선택지 변수
+	if (rulecount > 0) rule();
 	for (i = 0; i <= diff; i++) {
-		date++;
+		if (timer >= 18) i++;
+		system("cls");
 		printf(" **[ %d일차 ]** \n\n", i);
 		if (health >= 100) health = 100;
 		if (intell >= 100) intell = 100;
-		if (mental >= 100) mental= 100;
+		if (mental >= 100) mental = 100;
 		if (foodbar >= 100) foodbar = 100;
-		hospi();
-		PCroom();
-		street();
-		ptj();
+		printf("현재위치 : 집\n\n무엇을 하시겠습니까?\n\n1. 학교에 간다.\n\n2. 길거리에 나간다.\n\n3. 집에 있는다.\n\n4. 상태 확인\n::");
+		scanf("%d", &ch);
+		// 메인 함수 이므로 아래는 주석처리
+		/*
+		switch (ch) {
+		case 1:
+			// 아직 만들지 않음 학교함수
+			// break;
+		case 2:
+			system("cls");
+			printf("현재위치 : 길거리\n길거리에 나왔습니다. 어디로 가시겠습니까?\n\n1. 상가로 간다.\n\n2. 당구장으로 간다.\n\n3. 노래방으로 간다.\n\n4. PC방으로 간다.\n\n5. 병원으로 간다.\n\n6. 집으로 돌아간다.\n::");
+			scanf("%d", &ch1);
+			switch (ch1) {
+				case 1:
+					system("cls");
+					street();
+					break;
+				case 2:
+					system("cls");
+					dango();
+					break;
+				case 3:
+					system("cls");
+					garaoke();
+					break;
+				case 4:
+					system("cls");
+					PCroom();
+					break;
+				case 5:
+					system("cls");
+					hospi();
+					break;
+				case 6:
+					system("cls");
+					main();
+					break;
+			}
+			break;
+		case 3:
+			system("cls");
+			home();
+			break;
+		case 4:
+			system("cls");
+			printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+			system("pause");
+			main();
+			break;
+		}
 	}
+	*/
 }
-// 메인은 추후 수정
-// 백업본
