@@ -7,14 +7,8 @@ int ptj()//아르바이트 함수
 	{
 	case 1:
 		printf("편돌이로 취직하여 단순노동을 합니다......\n");
-		money += 4000;
-		timer -= 4; //4시간 경과 (감소)
-		health -= 15;//체력 10 감소 
-		intell -= 5;// 지능 5감소
-		foodbar -= 15;//허기 15감소 
-		mental -= 5;
-		printf("편의점 알바가 끝났습니다.\n");
-		printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+		printf("아르바이트를 하려했으나 부모님이 너무 똑똑하신 나머지 SKY수석입학을 하셔서 허락을 못해주셨습니다.....\n");
+		printf("돈을 벌지 못했습니다...........")
 		break;
 
 	case 2:
@@ -39,6 +33,7 @@ int ptj()//아르바이트 함수
 		mental -= 25;
 		printf("드디어 허더에게서 벗어났습니다.....\n");
 		printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+
 	}
 	return 0;
 }
