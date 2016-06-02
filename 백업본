@@ -24,7 +24,7 @@ int rule(){
 	printf("===============RULE===============\n\n- 체력, 지능, 허기, 멘탈을 관리하세요\n\n- 24시간 기준으로 자는시간 6시간을 제외한 18시간이 활동 시간입니다.\n\n");
 	system("pause");
 	system("cls");
-	printf("===============난이도 설정===============\n\n1. 쉬움( 14일 )\t2. 보통( 30일 )\t3. 어려움( 90일 )\n::");
+	printf("===============난이도 설정===============\n\n1. 쉬움( 14일 )\n\n2. 보통( 30일 )\n\n3. 어려움( 90일 )\n::");
 	scanf("%d", &diff);
 	system("cls");
 	rulecount--;
@@ -32,22 +32,15 @@ int rule(){
 void main() {
 	int ch,ch1;// 선택지 변수
 	if (rulecount > 0) rule();
-	for (date = 0; date <= diff; date++) {
-		if (timer <= 0) {
-			printf("잘 시간이 되었습니다.\n 잠을 잡니다.");
-			timer -= 6;
-			health += 20;
-			foodbar -= 20;
-			mental += 20;
-			main();
-		}
+	for (i = 0; i <= diff; i++) {
+		if (timer >= 18) i++;
 		system("cls");
 		printf(" **[ %d일차 ]** \n\n", i);
 		if (health >= 100) health = 100;
 		if (intell >= 100) intell = 100;
 		if (mental >= 100) mental = 100;
 		if (foodbar >= 100) foodbar = 100;
-		printf("현재위치 : 집\n무엇을 하시겠습니까?\n\n1. 학교에 간다.\n2. 길거리에 나간다.\n3. 그냥 집에 있는다.\n4. 상태 확인\n::");
+		printf("현재위치 : 집\n\n무엇을 하시겠습니까?\n\n1. 학교에 간다.\n\n2. 길거리에 나간다.\n\n3. 집에 있는다.\n\n4. 상태 확인\n::");
 		scanf("%d", &ch);
 		switch (ch) {
 		case 1:
@@ -55,7 +48,7 @@ void main() {
 			// break;
 		case 2:
 			system("cls");
-			printf("현재위치 : 길거리\n길거리에 나왔습니다. 어디로 가시겠습니까?\n\n1.상가로 간다.\n2. 당구장으로 간다.\n3. 노래방으로 간다.\n4. PC방으로 간다.\n5.병원으로 간다.\n6. 집으로 돌아간다.\n::");
+			printf("현재위치 : 길거리\n길거리에 나왔습니다. 어디로 가시겠습니까?\n\n1. 상가로 간다.\n\n2. 당구장으로 간다.\n\n3. 노래방으로 간다.\n\n4. PC방으로 간다.\n\n5. 병원으로 간다.\n\n6. 집으로 돌아간다.\n::");
 			scanf("%d", &ch1);
 			switch (ch1) {
 				case 1:
@@ -551,6 +544,9 @@ void PCroom() {
 			timer -= 3;
 			money -= 3000;
 			foodbar -= 15;
+		case 4:
+			printf("피시방에서 나갑니다.\n");
+			return 0;
 		}
 	}
 	if (health >= 100) health = 100;
@@ -620,17 +616,18 @@ void home() {
 	int choice;
 	char a;
 	int random;
-	if (timer <= 0) {
-		printf("잘 시간이 되었습니다.\n 잠을 잡니다.");
-		timer -= 6;
-		health += 20;
-		foodbar -= 20;
-		mental += 20;
-		main();
-	}
 	system("cls");
 	printf("현재위치 : 집\n");
 	while (1) {
+		printf("time : %d\n", timer);
+		if (timer <= 0) {
+			printf("잘 시간이 되었습니다.\n 잠을 잡니다.");
+			health += 20;
+			foodbar -= 20;
+			mental += 20;
+			timer = 18;
+			main();
+		}
 		printf("===============HOME===============\n\n1. 냉장고\n2. TV\n3. 침실\n4. 목욕\n5. 다시 선택지로 간다.\n::");
 		scanf("%d", &choice);
 		switch (choice) {
@@ -1515,6 +1512,7 @@ void garaoke() {
 		break;
 	case 2:
 		printf("노래방에서 나갑니다\n");
+		return 0;
 	}
 
 if (health >= 100) health = 100;
@@ -1540,7 +1538,7 @@ void dango() {
 	}
 	for (i = 0; i<j; i++) {
 		system("cls");
-		printf("현재위치 : 당구장\n\t\t===당구장에왔습니다.===\n\t\t===당구1번칠때마다 10분===\n\t\t===시간당 허기 15===\n1.당구치기\t\t2.나가기\n::");
+		printf("현재위치 : 당구장\n\n\t\t===당구장에왔습니다.===\n\t\t===당구1번칠때마다 10분===\n\t\t===시간당 허기 15===\n\n1.당구치기\n\n2.나가기\n::");
 		scanf("%d", &choice);
 		if (choice == 2) {
 			printf("당구장에서 나갑니다.\n");
