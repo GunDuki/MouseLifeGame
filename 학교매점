@@ -1,164 +1,167 @@
-void school_shop(){
- 	while(1){
-		int choice;
-		int food;
+void school_shop() {
+	int choice;
+	int food;
+	while (1) {
 		printf("--------주스--------\n1. 포도 2. 망고 3. 오렌지 4. 피크닉 5. 바나나 6. 파워에이드 7. 코코팜 8. 허쉬 초콜릿 9. 블루레몬에이드");
 		printf("--------과자--------\n1. 나감자 2. 나나콘 3. 라볶이\n");
 		printf("--------아이스크림--------\n1. 보석바 2. 초코퍼지 3. 와일드바디 4. 생귤탱귤감귤\n");
 		printf("--------식사류--------\n1. 골드라인 2. 불닭 3. 베이글 4. 케이크");//불닭을 고르면 아니 이런 쥐약을 먹었네;; 사망(체력 -95) 
-	
-		scanf("%d",choice);
 
-		if(choice == 1 )
-		{	printf("-------주스를 골랐습니다-------") 
-			switch(food)
-			{
+		scanf("%d",&choice);
+		if (choice == 1)
+		{
+			printf("-------주스를 골랐습니다-------");
+				switch (food)
+				{
 				case 1:
 					printf("포도를 골랐습니다.\n");
 					foodbar += 3;
-					money -= 1000; 
+					money -= 1000;
 					break;
-				
+
 				case 2:
 					printf("망고를 골랐습니다.\n");
 					foodbar += 3;
-					money -= 1000; 
+					money -= 1000;
 					break;
-				
+
 				case 3:
 					printf("오렌지를 골랐습니다\n.");
 					foodbar += 3;
-					money -= 1000; 
+					money -= 1000;
 					break;
-					
+
 				case 4:
 					printf("피크닉을 골랐습니다.\n");
 					foodbar += 3;
-					money -= 1000; 
+					money -= 1000;
 					break;
-					
+
 				case 5:
 					printf("바나나주스를 골랐습니다.\n");
 					foodbar += 6;
-					money -= 1900; 
+					money -= 1900;
 					break;
-					
+
 				case 6:
 					printf("파워에이드를 골랐습니다.\n");
 					foodbar += 7;
-					money -= 2000; 
+					money -= 2000;
 					break;
-					
+
 				case 7:
 					printf("코코팜을 골랐습니다.\n");
 					foodbar += 7;
-					money -= 2100; 
+					money -= 2100;
 					break;
-					
+
 				case 8:
 					printf("초코에몽을 골랐습니다.\n");
 					foodbar += 6;
-					money -= 2000; 
+					money -= 2000;
 					break;
-					
+
 				case 9:
 					printf("허쉬 초콜릿 드링크를 골랐습니다.\n");
 					foodbar += 6;
-					money -= 2000; 
+					money -= 2000;
 					break;
-					
+
 				case 10:
 					printf("블루레몬에이드를 골랐습니다.\n");
 					foodbar += 8;
-					money -= 2200; 
+					money -= 2200;
 					break;
-			}		
+				}
 		}
-		if(choice == 2)
-		{	printf("-------과자를 골랐습니다-------") 
-			switch(food)
-			{
+		if (choice == 2)
+		{
+			printf("-------과자를 골랐습니다-------");
+				switch (food)
+				{
 				case 1:
 					printf("나감자를 골랐습니다.\n");
 					foodbar += 15;
-					money -= 1500; 
+					money -= 1500;
 					break;
-				
+
 				case 2:
 					printf("나나콘을 골랐습니다.\n");
 					foodbar += 15;
-					money -= 1500; 
+					money -= 1500;
 					break;
-				
+
 				case 3:
 					printf("라볶이를 골랐습니다\n.");
 					foodbar += 15;
-					money -= 1500; 
+					money -= 1500;
 					break;
-			}		
+				}
 		}
-		if(choice == 3 )
-		{	printf("-------아이스크림를 골랐습니다-------") 
-			switch(food)
-			{
+		if (choice == 3)
+		{
+			printf("-------아이스크림를 골랐습니다-------");
+				switch (food)
+				{
 				case 1:
 					printf("보석바를 골랐습니다.\n");
 					foodbar += 13;
-					money -= 2000; 
+					money -= 2000;
 					break;
-				
+
 				case 2:
 					printf("초코퍼지를 골랐습니다.\n");
 					foodbar += 13;
-					money -= 2000; 
+					money -= 2000;
 					break;
-				
+
 				case 3:
 					printf("와일드바디를 골랐습니다\n.");
 					foodbar += 13;
-					money -= 2000; 
+					money -= 2000;
 					break;
-					
+
 				case 4:
 					printf("생귤탱귤감귤을 골랐습니다.\n");
 					foodbar += 13;
-					money -= 2000; 
+					money -= 2000;
 					break;
-			}
+				}
 		}
-		if(choice == 4 )
-		{	printf("-------식사를 골랐습니다-------") 
-			switch(food)
-			{
+	}
+		if (choice == 4)
+		{
+			printf("-------식사를 골랐습니다-------");
+				switch (food)
+				{
 				case 1:
 					printf("골드라인을 골랐습니다.\n");
 					foodbar += 25;
-					money -= 3000; 
+					money -= 3000;
 					break;
-				
+
 				case 2:
 					printf("불닭을 골랐습니다.\n");
 					printf("하지만 매점아저씨의 실수로 인해 불닭에 쥐약을 뿌렸습니다.\n");
 					printf("찍찍이가 쥐약을 먹었습니다......\n");
 					printf("쥐약을 먹은 찍찍이는 이미 멍청한 머리가 더 멍청해지고 중독되었습니다........\n");
 					health -= 80;
-					intell -= 60; 
+					intell -= 60;
 					foodbar += 30;
 					money -= 2500;
 					break;
-				
+
 				case 3:
 					printf("베이글을 골랐습니다\n.");
 					foodbar += 25;
-					money -= 3000; 
+					money -= 3000;
 					break;
-					
+
 				case 4:
 					printf("케이크를 골랐습니다.\n");
 					foodbar += 15;
-					money -= 1500; 
+					money -= 1500;
 					break;
-			}
+				}
 		}
 	}
-}
