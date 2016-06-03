@@ -1,0 +1,9 @@
+void status(){
+	if (health >= 100) health = 100;
+	if (intell >= 100) intell = 100;
+	if (mental >= 100) mental= 100;
+	if (foodbar >= 100) foodbar = 100;
+	printf("체력 : %d\n지능 : %d\n멘탈 : %d\n허기 : %d\n돈 : %d\n시간 : %d:00\n", health, intell, mental, foodbar, money, (18 - timer) + 6);
+	system("pause");
+	system("cls");
+}
