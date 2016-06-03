@@ -1,0 +1,67 @@
+void school_history() {
+	printf("====역사====\n");
+	printf("이진영 쌤 : 아시겠져~\n");
+	Sleep(100);
+	printf("이진영 쌤 : 됐져~\n");
+	Sleep(100);
+		timer -= 1;
+		intell += 10;
+		foodbar -= 10;
+		mental += 5;
+}
+void school_samu() {
+	printf("====사무관리실무====\n");
+	printf("박은산 쌤 : 야! 너 나와\n");
+	Sleep(100);
+	printf("박은산 쌤 : 깡!!\n");
+	Sleep(100);
+	timer -= 1;
+	intell += 10;
+	foodbar -= 10;
+	mental += 5;
+	health -= 5;
+}
+void school_gicho() {
+	printf("====기초제도====\n");
+	printf("권순경 쌤 : 야! 정원준!\n");
+	Sleep(100);
+	printf("권순경 쌤 : 여기 뚫려있지!?\n");
+	Sleep(500);
+	printf("권순경 쌤 : 어?!?\n");
+	Sleep(100);
+	printf("1-2 일동 : 예~\n");
+	timer -= 1;
+	intell += 5;
+	foodbar -= 20;
+	mental -= 20;
+	health -= 5;
+}
+void school_programming() {
+	printf("====프로그래밍====\n");
+	printf("이소영 쌤 : 너 뭐했어?\n");
+	Sleep(100);
+	timer -= 1;
+	intell += 10;
+	foodbar -= 5;
+	mental -= 10;
+	health -= 3;
+}
+void school_physical() {
+	printf("====체육====\n");
+	printf("체육 쌤 : 줄넘기 안가져온사람?\n");
+	Sleep(100);
+	timer -= 1;
+	intell += 5;
+	foodbar -= 20;
+	mental += 20;
+	health -= 15;
+}
+void school_future() {
+	printf("====진로====\n");
+	printf("진로 쌤 : 거기 누구야. 2번~? \n");
+	Sleep(100);
+	timer -= 1;
+	intell += 5;
+	foodbar -= 5;
+	mental -= 1;
+}
