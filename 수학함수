@@ -1,0 +1,52 @@
+void school_math(){
+	int choice;
+	int mathchoice;
+	printf("=====수학시간=====\n");
+	i=1;
+	while(i){
+	printf("1.자겠습니까??\t\t2.수업을 듣겠습니까??\n");
+	scanf("%d",&choice);
+	switch(choice){
+	case 1:
+		printf("드르렁 Zzz\n");
+		srand(time(NULL));
+		mathchoice=rand()%5+1;
+		switch(mathchoice){
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+			printf("안걸렸당 헤헤\n");
+			printf("체력 +10 지능 -4 멘탈 +10 허기 -5\n");
+			health+=10;
+			intell-=4;
+			mental+=10;
+			foodbar-=5;
+			break;
+		case 5:
+			printf("수학쌤 : 자면안되지 !!\n");
+			printf("아 시ㅡ발 걸렸다.\n");
+			printf("체력 -5 멘탈 -10 허기-5 지능-4\n");
+			mental-=10;
+			foodbar-=5;
+			intell-=4;
+			health-=5;
+		}
+		i--;
+		break;
+	case 2:
+	printf("수학쌤 : B에제곱 -4ac\n");
+	printf("체력 -10 지능 + 4 허기 -10 멘탈 -10\n");
+	health-=10;
+	intell+=4;
+	foodbar-=10;
+	mental-=10;
+	i--;
+	break;
+	default:
+		printf("다시 입력하세요.");
+		}
+	}
+	timer+=1;
+	status();
+}
