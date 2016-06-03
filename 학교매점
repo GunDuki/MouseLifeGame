@@ -74,7 +74,7 @@ void school_shop() {
 					break;
 				}
 		}
-		if (choice == 2)
+		else if (choice == 2)
 		{
 			printf("-------과자를 골랐습니다-------");
 				switch (food)
@@ -98,7 +98,7 @@ void school_shop() {
 					break;
 				}
 		}
-		if (choice == 3)
+		else if (choice == 3)
 		{
 			printf("-------아이스크림를 골랐습니다-------");
 				switch (food)
@@ -129,7 +129,7 @@ void school_shop() {
 				}
 		}
 	}
-		if (choice == 4)
+		else if (choice == 4)
 		{
 			printf("-------식사를 골랐습니다-------");
 				switch (food)
