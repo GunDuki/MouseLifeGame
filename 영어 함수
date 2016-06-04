@@ -5,7 +5,7 @@ void school_english(){
 	i=1;
 	while(i){
 	printf("1.잔다\t\t2.수업을 듣는다.\n");
-	scanf("%d",choice);
+	scanf("%d",&choice);
 	switch(choice){
 	case 1:
 		printf("드르렁 Zzz\n");
@@ -30,7 +30,7 @@ void school_english(){
 			mental-=10;
 			foodbar-=5;
 			intell-=4;
-			healt-=5;
+			health-=5;
 		}
 		i--;
 		break;
@@ -44,7 +44,7 @@ void school_english(){
 		case 3:
 		case 4:
 			printf("체력 -10 지능 +4 허기 -10 멘탈 +10\n");
-			healt-=10;
+			health-=10;
 			intell+=4;
 			foodbar-=10;
 			break;
@@ -52,7 +52,7 @@ void school_english(){
 			printf("가경철의 무술쇼\n");
 			printf("가경철 : 슉슉 이거는 입에서 나는 소리가 아니여\n");
 			printf("체력 -5 지능 +4 허기 -5 멘탈 +10\n");
-			healt-=5;
+			health-=5;
 			intell+=4;
 			foodbar-=5;
 			mental+=10;
